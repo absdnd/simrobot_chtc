@@ -1,0 +1,15 @@
+000 (16567363.000.000) 2023-12-26 16:37:10 Job submitted from host: <128.104.101.92:9618?addrs=128.104.101.92-9618+[2607-f388-107c-501-a236-9fff-fe3c-caa8]-9618&alias=submit2.chtc.wisc.edu&noUDP&sock=schedd_2525712_ee46>
+...
+040 (16567363.000.000) 2023-12-26 16:38:08 Started transferring input files
+	Transferring to host: <128.105.69.42:9618?addrs=128.105.69.42-9618&alias=e2364.chtc.wisc.edu&noUDP&sock=slot1_3_13136_400f_20193>
+...
+040 (16567363.000.000) 2023-12-26 16:38:10 Finished transferring input files
+...
+001 (16567363.000.000) 2023-12-26 16:38:10 Job executing on host: <128.105.69.42:9618?addrs=128.105.69.42-9618&alias=e2364.chtc.wisc.edu&noUDP&sock=startd_7722_3a6a>
+	SlotName: slot1_3@e2364.chtc.wisc.edu
+	CondorScratchDir = "/var/lib/condor/execute/slot1/dir_6718"
+	Cpus = 1
+	Disk = 12984645
+	IoHeavy = 0
+	Memory = 8192
+...
