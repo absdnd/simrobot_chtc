@@ -1,0 +1,18 @@
+# HTC Submit File
+
+# Provide HTCondor with the name of the Docker container
+container_image = docker://aharish2/simrobot:v1
+
+executable=install_from_scratch.sh
+transfer_input_files=http://proxy.chtc.wisc.edu/SQUID/chtc/el8/python39.tar.gz, install_from_scratch.sh, NeuralControl.cpp
+transfer_output_files="trajectory.tar.gz"
+
+log = install_from_scratch.log
+error = install_from_scratch.err
+output = install_from_scratch.out
+
+request_cpus = 1
+request_memory = 8GB
+request_disk = 12GB
+
+queue
