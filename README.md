@@ -6,7 +6,7 @@
 ### Clone the repository
 From the root directory, of the repository run the following command. First make sure you checkout to the desired branch and pull latest changes: `bash prepare.sh $BRANCH_NAME`. Alternatively, you can run the following: 
 
-`git clone --recursive https://github.com/absdnd/simrobot_chtc.git`
+`git clone --recursive https://github.com/Badger-RL/BadgerRLSystem.git`
 `cd BadgerRLSystem`
 `git checkout -b $BRANCH_NAME`
 `tar -czf BadgerRLSystem.tar.gz BadgerRLSystem`
