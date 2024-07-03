@@ -1,5 +1,5 @@
 
-# A submission setup to install and run the SimRobot docker image
+# A Setup to Run Simrobot remotely on Remote Cluster
 
 ## Installation
 
