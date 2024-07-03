@@ -1,0 +1,8 @@
+# all files ending with .out
+*.out
+*.log
+*.err
+
+BadgerRLSystem.tar.gz
+BadgerRLSystem
+simrobot.sif

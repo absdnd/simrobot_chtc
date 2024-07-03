@@ -1,0 +1,30 @@
+Bootstrap: docker
+From: ubuntu:{{ VERSION }}
+Stage: build
+
+%arguments
+    VERSION=22.04
+    DEBIAN_FRONTEND=noninteractive
+
+%files
+    BadgerRLSystem.tar.gz /opt
+
+%post
+    cd /opt
+    chmod 1777 /tmp
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get update
+    apt install -y xvfb ccache clang cmake exfatprogs git graphviz libasound2-dev libbox2d-dev libgl-dev libqt6opengl6-dev libqt6svg6-dev libstdc++-12-dev llvm mold net-tools ninja-build pigz qt6-base-dev rsync xxd
+    tar -xvf BadgerRLSystem.tar.gz
+    cd BadgerRLSystem
+    git config --global --add safe.directory /opt/BadgerRLSystem
+    git checkout eval_testing
+    export CMAKE_MODULE_PATH=$PWD/Make/Linux
+    Make/Linux/generate
+    Make/Linux/compile Nao
+    Make/Linux/compile SimRobot
+%help 
+    # For C++ 12 version #  
+    apt install -y ccache clang cmake git graphviz libasound2-dev libgl-dev libqt6opengl6-dev libqt6svg6-dev llvm mold net-tools ninja-build pigz qt6-base-dev rsync tk xterm xxd
+    export SINGULARITY_DISABLE_CACHE=True
+    export APPTAINER_DISABLE_CACHE=True    

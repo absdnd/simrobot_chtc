@@ -1,8 +1,9 @@
 # HTC Submit File
 
 # Provide HTCondor with the name of the Docker container
-container_image = docker://aharish2/simrobot:v1
+container_image = simrobot.sif
 
+universe = container
 executable=run_built_image.sh
 transfer_input_files=http://proxy.chtc.wisc.edu/SQUID/chtc/el8/python39.tar.gz, run_built_image.sh, NeuralControl.cpp
 transfer_output_files="trajectory.tar.gz"
@@ -11,8 +12,8 @@ log = docker_job.log
 error = docker_job.err
 output = docker_job.out
 
-request_cpus = 1
+request_cpus = 4
 request_memory = 8GB
-request_disk = 12GB
+request_disk = 20GB
 
 queue
