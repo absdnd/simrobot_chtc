@@ -9,9 +9,9 @@ log = build.log
 executable = /usr/bin/hostname
 
 # If you have additional files in your /home directory that are required for your container, add them to the transfer_input_files line as a comma-separated list.
-transfer_input_files = BadgerRLSystem.tar.gz,simrobot.def
-transfer_output_files = "simrobot.sif"
-
+transfer_input_files = data/BadgerRLSystem.tar.gz,data/simrobot.def
+transfer_output_files = simrobot.sif
+transfer_output_remaps = "simrobot.sif = /home/aharish2/CleanRL/simrobot_chtc/data/simrobot.sif"
 requirements = (HasCHTCStaging == true)
 
 +IsBuildJob = true

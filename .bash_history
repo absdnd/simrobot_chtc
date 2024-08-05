@@ -1,9 +1,11 @@
 ls
-cd /opt/
+cd /tmp/
 ls
-cd BadgerRLSystem
-xvfb-run Build/Linux/SimRobot/Develop/SimRobot Config/Scenes/ThreeRobotFast.ros2
-xvfb
-xvfb-run
-Build/Linux/SimRobot/Develop/SimRobot Config/Scenes/OneTeam.ros2 
-xvfb-run
+cd /tmp/
+ls
+ls
+ls
+cd ..
+ls
+cd mnt/
+ls

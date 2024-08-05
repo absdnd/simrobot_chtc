@@ -2,7 +2,7 @@ import argparse
 import os
 
 
-
+## Parser for command line arguments ### 
 def get_parser():
     parser = argparse.ArgumentParser(description='Submit a docker job to CHTC')
     parser.add_argument('--install', action='store_true', help='Install the docker image')
@@ -10,6 +10,8 @@ def get_parser():
     args = parser.parse_args()
     return args
 
+
+### Main function to submit the job ###
 if __name__ == "__main__": 
     args = get_parser()
     if args.install:

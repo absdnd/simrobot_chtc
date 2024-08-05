@@ -1,19 +1,19 @@
 # build.sub
 # For building an Apptainer container
 
-container_image = simrobot.sif
+container_image = data/simrobot_latest.sif
 
 universe = container
 out = test.out
 log = test.log
 error = test.err
 
-# In the latest version of HTCondor on CHTC, interactive jobs require an executable.
-# If you do not have an existing executable, use a generic linux command like hostname as shown below.
-executable = run_image.sh
+arguments=$(params)
+
+executable = exe/run_image.sh
 
 # If you have additional files in your /home directory that are required for your container, add them to the transfer_input_files line as a comma-separated list.
-transfer_input_files = simrobot.def
+transfer_input_files = data/simrobot.def
 
 requirements = (HasCHTCStaging == true)
 

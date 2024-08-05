@@ -1,0 +1,7 @@
+From: simrobot.sif
+
+Bootstrap: localimage
+
+%post
+    cd /opt
+    

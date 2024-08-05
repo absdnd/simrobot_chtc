@@ -1,0 +1,1 @@
+tar -czf data/BadgerRLSystem.tar.gz data/BadgerRLSystem/

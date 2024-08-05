@@ -7,18 +7,21 @@ Stage: build
     DEBIAN_FRONTEND=noninteractive
 
 %files
-    BadgerRLSystem.tar.gz /opt
+    BadgerRLSystem.tar.gz
 
 %post
-    cd /opt
-    chmod 1777 /tmp
+    mv BadgerRLSystem.tar.gz /tmp
+    cd /tmp
+    ls
+    chmod 1777 /tmp 
     export DEBIAN_FRONTEND=noninteractive
     apt-get update
-    apt install -y xvfb ccache clang cmake exfatprogs git graphviz libasound2-dev libbox2d-dev libgl-dev libqt6opengl6-dev libqt6svg6-dev libstdc++-12-dev llvm mold net-tools ninja-build pigz qt6-base-dev rsync xxd
+    apt install -y xvfb nano python3-pip ccache clang cmake exfatprogs git graphviz libasound2-dev libbox2d-dev libgl-dev libqt6opengl6-dev libqt6svg6-dev libstdc++-12-dev llvm mold net-tools ninja-build pigz qt6-base-dev rsync xxd
+    pip install wandb
     tar -xvf BadgerRLSystem.tar.gz
-    cd BadgerRLSystem
-    git config --global --add safe.directory /opt/BadgerRLSystem
-    git checkout eval_testing
+    cd data/BadgerRLSystem
+    git config --global --add safe.directory /tmp/data/BadgerRLSystem
+    git checkout eval_setup
     export CMAKE_MODULE_PATH=$PWD/Make/Linux
     Make/Linux/generate
     Make/Linux/compile Nao
