@@ -1,6 +1,8 @@
 #!/bin/bash
 echo "Running the command: $@"
-cd /tmp/BadgerRLSystem
-$("$@")
+cd /opt/BadgerRLSystem
+export SCRATH_DIR=env | grep -i scratch
+xvfb-run Build/Linux/SimRobot/Develop/SimRobot Config/Scenes/ThreeRobots.ros2
+# $("$@")
 # Moving data file to root directory # 
-mv "Config/
+# mv "Config/

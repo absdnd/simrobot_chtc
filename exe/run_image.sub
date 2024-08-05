@@ -1,7 +1,7 @@
 # build.sub
 # For building an Apptainer container
 
-container_image = data/simrobot_latest.sif
+container_image = containers/simrobot.sif
 
 universe = container
 out = test.out
@@ -14,6 +14,8 @@ executable = exe/run_image.sh
 
 # If you have additional files in your /home directory that are required for your container, add them to the transfer_input_files line as a comma-separated list.
 transfer_input_files = data/simrobot.def
+transfer_output_files = tempdata.txt
+transfer_output_remaps = "tempdata.txt = /home/aharish2/CleanRL/simrobot_chtc/runs/tempdata_$(Proccess).txt"
 
 requirements = (HasCHTCStaging == true)
 

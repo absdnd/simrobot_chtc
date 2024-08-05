@@ -10,8 +10,8 @@ Stage: build
     BadgerRLSystem.tar.gz
 
 %post
-    mv BadgerRLSystem.tar.gz /tmp
-    cd /tmp
+    mv BadgerRLSystem.tar.gz /opt
+    cd /opt
     ls
     chmod 1777 /tmp 
     export DEBIAN_FRONTEND=noninteractive
@@ -20,7 +20,7 @@ Stage: build
     pip install wandb
     tar -xvf BadgerRLSystem.tar.gz
     cd data/BadgerRLSystem
-    git config --global --add safe.directory /tmp/data/BadgerRLSystem
+    git config --global --add safe.directory /opt/data/BadgerRLSystem
     git checkout eval_setup
     export CMAKE_MODULE_PATH=$PWD/Make/Linux
     Make/Linux/generate
