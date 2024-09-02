@@ -1,0 +1,15 @@
+universe = vanilla
+log = build.log
+
+executable = build/direct_build.sh
+
+transfer_input_files = data/BadgerRLSystem.tar.gz,data/simrobot.def
+transfer_output_files = simrobot.sif
+transfer_output_remaps = "simrobot.sif = containers/simrobot.sif"
+requirements = (HasCHTCStaging == true)
+
+request_cpus = 8
+request_memory = 32GB
+request_disk = 100GB
+
+queue

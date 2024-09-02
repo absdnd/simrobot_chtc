@@ -6,3 +6,8 @@
 BadgerRLSystem.tar.gz
 BadgerRLSystem
 containers/
+
+data/logs/*
+data/output/*
+data/error/*
+data/results/*
