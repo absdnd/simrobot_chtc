@@ -4,14 +4,11 @@
 universe = vanilla
 log = build.log
 
-# In the latest version of HTCondor on CHTC, interactive jobs require an executable.
-# If you do not have an existing executable, use a generic linux command like hostname as shown below.
 executable = /usr/bin/hostname
 
-# If you have additional files in your /home directory that are required for your container, add them to the transfer_input_files line as a comma-separated list.
 transfer_input_files = data/BadgerRLSystem.tar.gz,data/simrobot.def
 transfer_output_files = simrobot.sif
-transfer_output_remaps = "simrobot.sif = /home/aharish2/CleanRL/simrobot_chtc/containers/simrobot.sif"
+transfer_output_remaps = "simrobot.sif = containers/simrobot.sif"
 requirements = (HasCHTCStaging == true)
 
 +IsBuildJob = true

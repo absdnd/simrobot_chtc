@@ -8,6 +8,7 @@ transfer_output_files = simrobot.sif
 transfer_output_remaps = "simrobot.sif = containers/simrobot.sif"
 requirements = (HasCHTCStaging == true)
 
+
 request_cpus = 8
 request_memory = 32GB
 request_disk = 100GB

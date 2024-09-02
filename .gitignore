@@ -11,3 +11,7 @@ data/logs/*
 data/output/*
 data/error/*
 data/results/*
+data/jobs/*
+
+test.cpp
+test.o

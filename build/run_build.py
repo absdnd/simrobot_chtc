@@ -2,7 +2,6 @@
 import argparse
 import os
 
-# Parser Argument # 
 def get_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('--folder', default="data/BadgerRLSystem", type=str)
@@ -11,8 +10,6 @@ def get_parser():
     parser.add_argument('--prepare-data', default=True, type=bool)
     return parser
 
-def log(s):
-    print(s)
 
 if __name__ == "__main__":
     parser = get_parser()
@@ -24,7 +21,7 @@ if __name__ == "__main__":
     '''
     Prepare the data by cd'ing into the folder and pulling latest changes
     - Checkout to Robocup2024 branch
-    - Pull latest changes and compresss the folder
+    - Pull latest changes and compress folder into a tar.gz file
     '''
 
     if args.prepare_data:    
@@ -33,6 +30,7 @@ if __name__ == "__main__":
             f"cd {args.folder} && git pull origin {args.branch} && git checkout {args.branch} && cd {PWD}"
         )
 
+        print("Compressing data...")
         os.system(
         f"tar -czf {args.folder}.tar.gz {args.folder}"
         )

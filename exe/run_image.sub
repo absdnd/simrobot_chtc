@@ -1,7 +1,6 @@
 universe = container
 container_image = containers/simrobot.sif
 
-out = data/output/$(run_name).out
 log = data/logs/$(run_name).log
 error = data/error/$(run_name).err
 
