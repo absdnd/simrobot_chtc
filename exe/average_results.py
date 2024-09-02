@@ -7,8 +7,9 @@ import argparse
 import sys
 
 
+# Run results assuming a data format of: $success_rate $time
 BASE_RESULT_DIR = "data/results"
-def extract_run_results (data_files, format=["success", "time"]):
+def extract_run_results (data_files):
     success_list,time_list = [], []
     for file in data_files: 
         with open(f"{BASE_RESULT_DIR}/{file}", "r") as f:

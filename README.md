@@ -20,8 +20,15 @@ If running interactively, run the command `apptainer build simrobot.sif simrobot
 
 ### Run Build Image
 
-To run the built image, use the command `python exe/run_simrobot.py`. This currently runs a single configuration `ThreeRobots.ros2`. To run multiple config files create them manually or using a script in the directory `Config/Scenes/ThreeRobots.ros2`. Each config file will be assigned a separate run. The job commands would be a `.txt` files saved in the `data/jobs`. The output and logs would be specific to each config within the run and would be of the format `data/output/$RUN_NAME_$PROCESS_ID.out` and `data/logs/$RUN_NAME_$PROCESS_ID.log`. `$RUN_NAME` is the name assigned to the run on execution and `$PROCESS_ID` represents the job id being used. The command for execution is: 
+#### Job Execution 
+To run the built image, use the command `python exe/run_simrobot.py`. This currently runs a single configuration `ThreeRobots.ros2`. 
+
+To run multiple config files create them manually or using a script in the directory `Config/Scenes/ThreeRobots.ros2`. Each config file will be assigned a separate run. The job commands would be a `.txt` files saved in the `data/jobs`. 
+
+The output and logs would be specific to each config within the run and would be of the format `data/output/$RUN_NAME_$PROCESS_ID.out` and `data/logs/$RUN_NAME_$PROCESS_ID.log`. `$RUN_NAME` is the name assigned to the run on execution and `$PROCESS_ID` represents the job id being used. The command for execution is: 
 
 `python exe/run_simrobot.py $RUN_NAME`
 
+#### Analyzing Results
 
+To analyze the results of the executed jobs run the command `python exe/average_results.py $RUN_NAME` which will compute the avergae of all results of a specific `$RUN_NAME` 
