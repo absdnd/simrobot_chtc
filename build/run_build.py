@@ -7,8 +7,9 @@ def get_parser():
     parser.add_argument('--folder', default="data/BadgerRLSystem", type=str)
     parser.add_argument('--branch', default="RoboCup2024_container", type=str)
     parser.add_argument('--interactive', default=False, type=bool)
-    parser.add_argument('--prepare-data', default=True, type=bool)
+    parser.add_argument('--prepare-data', default=False, type=bool)
     return parser
+
 
 
 if __name__ == "__main__":
@@ -16,7 +17,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     PWD = os.getcwd()
-
 
     '''
     Prepare the data by cd'ing into the folder and pulling latest changes
@@ -35,8 +35,9 @@ if __name__ == "__main__":
         f"tar -czf {args.folder}.tar.gz {args.folder}"
         )
 
-
-
+    '''
+    Interactive job submission. Building using the 
+    '''
     if args.interactive: 
         os.system(
             "condor_submit -i build/direct_build.sub"

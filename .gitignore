@@ -10,7 +10,7 @@ containers/
 data/logs/*
 data/output/*
 data/error/*
-data/results/*
+# data/results/*
 data/jobs/*
 
 test.cpp
