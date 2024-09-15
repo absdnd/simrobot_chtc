@@ -1,0 +1,25 @@
+universe = container
+container_image = containers/simrobot_1v1_no_dribble.sif
+
+log = data/logs/$(run_name)_$(Process).log
+error = data/error/$(run_name)_$(Process).err
+output = data/output/$(run_name)_$(Process).out
+
+arguments=$(params)
+
+max_retries = 5
+
+
+executable = exe/run_image.sh
+
+transfer_input_files = data/simrobot.def
+transfer_output_files = tempdata.txt
+transfer_output_remaps = "tempdata.txt = data/results/$(run_name)_$(Process).txt"
+
+requirements = (HasCHTCStaging == true)
+
+request_cpus = 8
+request_memory = 16GB
+request_disk = 50GB
+
+queue params from $(commands_file)

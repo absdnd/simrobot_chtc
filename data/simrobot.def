@@ -21,7 +21,6 @@ Stage: build
     tar -xvf BadgerRLSystem.tar.gz
     cd data/BadgerRLSystem
     git config --global --add safe.directory /opt/data/BadgerRLSystem
-    git checkout RoboCup2024_container
     export CMAKE_MODULE_PATH=$PWD/Make/Linux
     Make/Linux/generate
     Make/Linux/compile Nao

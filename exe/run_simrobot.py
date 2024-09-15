@@ -6,11 +6,11 @@ import argparse
 BASE_RUN_CMD = "xvfb-run -a Build/Linux/SimRobot/Develop/SimRobot"
 # Config files to execute the simulation
 config_files = []
-for i in range(100):
+for i in range(0, 100):
     config_files.append(f"Config/Scenes/config_{i}.ros2")
 
+# config_files = ["Config/Scenes/config_0.ros2"]
 
-breakpoint()
 '''
 Getting parser from argparse
 - run-name: Name of the run
@@ -19,6 +19,7 @@ Getting parser from argparse
 '''
 def get_parser():
     parser = argparse.ArgumentParser()
+    parser.add_argument('--sub-file', default="run_all", type=str)
     parser.add_argument('--run-name', default="", type=str)
     parser.add_argument('--interactive', default=False, type=bool)
     parser.add_argument('--image', default="simrobot.sif", type=str)
@@ -39,11 +40,12 @@ if __name__ == "__main__":
         for cmd in cmd_list:
             f.write(f"{cmd}\n")
 
-    # Full command to run
+    # Full command to run the job # 
     full_cmd = ""
     if args.interactive:
-        full_cmd = f"condor_submit -i exe/run_image.sub run_name={args.run_name} commands_file=data/jobs/{args.run_name}.txt image={args.image}"
+        full_cmd = f"condor_submit -i exe/{args.sub_file}.sub run_name={args.run_name} commands_file=data/jobs/{args.run_name}.txt image={args.image}"
     else:
-        full_cmd = f"condor_submit exe/run_image.sub run_name={args.run_name} commands_file=data/jobs/{args.run_name}.txt image={args.image}"
+        full_cmd = f"condor_submit exe/{args.sub_file}.sub run_name={args.run_name} commands_file=data/jobs/{args.run_name}.txt image={args.image}"
 
+    print("Running command: ", full_cmd)
     os.system(full_cmd)

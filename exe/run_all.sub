@@ -1,11 +1,13 @@
 universe = container
-container_image = containers/simrobot.sif
+container_image = containers/simrobot_1v1_all.sif
 
 log = data/logs/$(run_name)_$(Process).log
 error = data/error/$(run_name)_$(Process).err
 output = data/output/$(run_name)_$(Process).out
 
-arguments=$(params)
+arguments=$(Process)
+
+max_retries = 5
 
 executable = exe/run_image.sh
 
